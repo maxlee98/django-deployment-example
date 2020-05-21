@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>User List</title>
+        <link rel="stylesheet" href="{% static 'css/apptwo.css' %}?20052020"/>
+    </head>
+
+    <body>
+        <h1>This is the list for Users</h1>
+        <h2>Here are the records</h2>
+
+        <div class="djangtwo">
+            {% if user_records %}
+                <ol>
+                    {% for user_created in user_records %}
+                    <li> User Record
+                        <ul>
+                            <li>First name: {{user_created.first_name}}</li>
+                            <li>Last Name: {{user_created.last_name}}</li>
+                            <li>Email: {{user_created.user_email}}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+
+            {% else %}
+                <p> NO USER RECORDS FOUND! </p>
+            {% endif %}
+
+
+        </div>
+    </body>
+</html>
